@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #inputsContainer {
+      border: 1px solid teal;
+      /* height: 250px; */
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="addButton" onclick="createInputs()">Add New Row</button>
+  <div id="inputsContainer">
+  </div>
+</body>
+<script>
+
+  function createInputs() {
+    const productIdInput = document.createElement("input");
+    productIdInput.type = "number";
+    productIdInput.placeholder = "Enter Product ID";
+    const productNameInput = document.createElement("input");
+    productNameInput.type = "text";
+    productNameInput.placeholder = "Enter Product Name";
+    const productQty = document.createElement("input");
+    productQty.type = "number";
+    productQty.placeholder = "Enter Quantity";
+
+    const deleteButton = document.createElement("button");
+    deleteButton.innerText = "Delete Row";
+    // deleteButton.onclick = function
+
+    const row = document.createElement("div");
+    row.append(productIdInput, productNameInput, productQty, deleteButton);
+
+    console.log(row);
+    const inputsContainer = document.getElementById("inputsContainer");
+    // console.log(inputsContainer)
+    inputsContainer.appendChild(row);
+  }
+
+  // for (let i = 0; i < 10; i++) {
+  //   createInputs();
+  // }
+  // createInputs()
+  // createInputs()
+  // createInputs()
+</script>
+
+</html>

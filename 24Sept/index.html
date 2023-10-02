@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>HTML Page</title>
+  <style>
+    div>h4 {
+      color: red;
+    }
+
+    pritesh {
+      color: orangered
+    }
+  </style>
+</head>
+
+<body>
+  <div id="main-container" style="border: 1px solid teal;">
+    ID Div
+    <p id="content">
+      Hi I am Paragraph in main container!
+    </p>
+    <p id="another-content">
+      Hi I am another Paragraph in main container!
+    </p>
+    <div id="another-container">
+      my div
+      <p id="in-another-container">hello</p>
+    </div>
+  </div>
+  <div class="container" style="border: 1px solid red; margin: 10px;">
+    Class Div A
+  </div>
+  <div class="container" style="border: 1px solid red; margin: 10px;">
+    Class Div B
+  </div>
+  <div class="container" style="border: 1px solid red; margin: 10px;">
+    Class Div C
+  </div>
+  <div class="container" style="border: 1px solid red; margin: 10px;">
+    Class Div D
+  </div>
+  <p id="content-1">
+    Hi I am Paragraph 1!
+  </p>
+  <p id="content-2">
+    Hi I am Paragraph 2!
+  </p>
+  <p id="content-3">
+    Hi I am Paragraph 3!
+  </p>
+  <div>
+    <h4>hello</h4>
+  </div>
+  <section>
+    <h4>kelo</h4>
+  </section>
+  <div>
+    <h4>bello</h4>
+    <section>
+      <h4>kelo</h4>
+    </section>
+  </div>
+  <div>
+    <h4>mello</h4>
+  </div>
+  <h4>yellow</h4>
+  <div id="injectHere"></div>
+</body>
+<script>
+  var mainContainer = document.getElementById("main-container");
+  // console.log(mainContainer);
+  // // innerHTML
+  // // innerText
+  // console.log(mainContainer.innerHTML);
+  // var inn_text = mainContainer.innerText;
+  // console.log(inn_text);
+  // // console.log(typeof inn_text);
+  // inn_text = "pritesh";
+
+  // // mainContainer.innerText = "anubhav";
+
+  // // textContent
+  // var textCont = mainContainer.textContent;
+  // console.log(`${textCont}`);
+
+  // getting by className
+
+  var container = document.getElementsByClassName("container");
+  // console.log(container[0]);
+  // console.log(container);
+  // console.log(container[1].innerHTML);
+
+  // for(let i = 0; i < container.length; i++) {
+  //   console.log(container[i]);
+  //   const text = container[i].innerText;
+  //   console.log(text);
+  // }
+
+  const selectedItem = document.querySelector("div > h4");
+  // console.log(selectedItem);
+  const selectedItems = document.querySelectorAll("div > h4 + section");
+  // console.log(selectedItems);
+
+  const sectionNextToH4InsideDiv = document.querySelector("div > h4 + section");
+  // console.log(sectionNextToH4InsideDiv);
+  // sectionNextToH4InsideDiv.innerHTML = "lol";
+  // sectionNextToH4InsideDiv.innerText = "lol";
+  // sectionNextToH4InsideDiv.innerHTML = "<p></p>";
+  // sectionNextToH4InsideDiv.innerText = "<p></p>";
+  // sectionNextToH4InsideDiv.textContent = "<p></p>";
+
+  // Creating HTML Elements using JS
+  const pTagUsingJS = document.createElement("p");
+  pTagUsingJS.innerText = "Made with JS";
+  pTagUsingJS.id = "jsPTag";
+  pTagUsingJS.style = "border: 1em solid red";
+  console.log(pTagUsingJS);
+
+  const anotherPTagUsingJS = document.createElement("p");
+  anotherPTagUsingJS.innerText = "Made with JS oooopopox";
+  // anotherPTagUsingJS.id = "jsPTag";
+  anotherPTagUsingJS.style = "border: 1em solid red";
+  console.log(anotherPTagUsingJS);
+
+  const targetDiv = document.querySelector("#injectHere");
+  console.log(targetDiv);
+  // targetDiv.innerHTML = pTagUsingJS;
+  // targetDiv.innerHTML = "<pritesh>yo!</pritesh>";
+  // targetDiv.append(pTagUsingJS, anotherPTagUsingJS);
+  targetDiv.appendChild(anotherPTagUsingJS);
+  // pTagUsingJS.className = "abc";
+  // pTagUsingJS.innerText = "xyz";
+  // targetDiv.append(pTagUsingJS);
+  
+
+  // Injecting HTML Elements into Webpage using JS
+  // mainContainer.append(pTagUsingJS);
+  // mainContainer.append(pTagUsingJS);
+  // mainContainer.append(pTagUsingJS);
+  // mainContainer.append(pTagUsingJS);
+
+  // Removing Element
+  // const body = document.querySelector("body");
+  // body.removeChild(mainContainer);
+  // mainContainer.remove();
+
+</script>
+
+</html>
