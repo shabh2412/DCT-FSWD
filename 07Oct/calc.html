@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Calculator</title>
+  <style>
+    #calculatorDiv {
+      border: 1px solid salmon;
+      padding: 15px;
+      border-radius: 5px;
+    }
+
+    p {
+      margin: 0;
+      width: 100%;
+    }
+
+    p#display {
+      background-color: black;
+      font-size: 16px;
+      height: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 style="text-align: center;">Calculator</h1>
+  <div id="calculatorDiv">
+    <div id="displayDiv">
+      <p id="display"></p>
+    </div>
+    <div id="buttonsDiv">
+      <div class="row">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>+</button>
+      </div>
+      <div class="row">
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>-</button>
+      </div>
+      <div class="row">
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>x</button>
+      </div>
+      <div class="row">
+        <button>C</button>
+        <button>0</button>
+        <button>=</button>
+        <button>÷</button>
+      </div>
+    </div>
+  </div>
+  <div id="example">
+    (div>button*4)*4
+  </div>
+</body>
+<script>
+  const display = document.querySelector("#display");
+  // console.log(display);
+  function addInDisplay(e) {
+    console.log("event generated");
+    console.log(e.target.innerText);
+  }
+  // const btn = document.querySelector("button");
+  // btn.addEventListener("click", addInDisplay)
+  const btnList = document.querySelectorAll("button");
+  // btnList.addEventListener("click", addInDisplay); // this will not work here
+  const length = btnList.length;
+  for (let i = 0; i < length; i++) {
+    btnList[i].addEventListener("click", addInDisplay);
+  }
+  // console.log(btn);
+</script>
+
+</html>
