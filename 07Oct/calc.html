@@ -19,6 +19,7 @@
       background-color: black;
       font-size: 16px;
       height: 20px;
+      color: white;
     }
   </style>
 </head>
@@ -46,13 +47,13 @@
         <button>7</button>
         <button>8</button>
         <button>9</button>
-        <button>x</button>
+        <button>*</button>
       </div>
       <div class="row">
         <button>C</button>
         <button>0</button>
         <button>=</button>
-        <button>÷</button>
+        <button>/</button>
       </div>
     </div>
   </div>
@@ -63,9 +64,8 @@
 <script>
   const display = document.querySelector("#display");
   // console.log(display);
-  function addInDisplay(e) {
+  function addInDisplay() {
     console.log("event generated");
-    console.log(e.target.innerText);
   }
   // const btn = document.querySelector("button");
   // btn.addEventListener("click", addInDisplay)
@@ -73,8 +73,29 @@
   // btnList.addEventListener("click", addInDisplay); // this will not work here
   const length = btnList.length;
   for (let i = 0; i < length; i++) {
-    btnList[i].addEventListener("click", addInDisplay);
+    btnList[i].addEventListener("click", function (myEvent) {
+      console.log("hello");
+      // console.log(myEvent.target);
+      // const buttonText = btnList[i].innerText;
+      const buttonText = myEvent.target.innerText;
+      const previousDisplayText = display.innerText;
+      const newText = previousDisplayText + buttonText;
+      display.innerText = newText;
+      if (buttonText === "C") {
+        display.innerText = "";
+      }
+      else if (buttonText === "=") {
+        const result = eval(previousDisplayText);
+        display.innerText = result;
+      }
+    });
   }
+
+  // document.addEventListener("click", function (eventX) {
+  //   console.log("clicked something");
+  //   console.log(eventX.target);
+  //   // eventX.stopPropagation();
+  // });
   // console.log(btn);
 </script>
 
