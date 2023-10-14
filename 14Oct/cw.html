@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Storage & In Built Sort & Comparators</title>
+</head>
+
+<body>
+  <input type="text" id="name">
+  <input type="text" id="age">
+  <button id="addButton">Add User</button>
+
+  <div id="userDetail">
+    <h1>Registered User</h1>
+    <p id="p_name">Name will come here </p>
+    <p id="p_age">Age will come here</p>
+  </div>
+</body>
+<script>
+  const button = document.querySelector("button");
+  // console.log(button);
+  function addUser() {
+    // console.log("adding user");
+    const input = document.querySelector("input#name");
+    // data attr
+    const entered_name = input.value;
+    const input_age = document.querySelector("input#age");
+    // data attr
+    const entered_age = input_age.value;
+    // console.log(entered_name, button.value);
+    const user = {
+      name: entered_name,
+      age: entered_age
+    };
+
+    console.log(user);
+
+    const user_string = JSON.stringify(user);
+
+    // localStorage.setItem("user", user); // this will fail to save the object.
+
+    //  saving user string in local storage
+    localStorage.setItem("user", user_string);
+
+
+    // localStorage.setItem("name", entered_name);
+
+  }
+  button.addEventListener("click", addUser);
+
+  const getUser = function () {
+    const user_string = localStorage.getItem("user");
+    const user = JSON.parse(user_string);
+    console.log(user);
+    const name = user.name;
+    const age = user.age;
+
+    const p_name = document.querySelector("p#p_name");
+    console.log(p_name);
+    // p_name.setAttribute("value", name);
+    p_name.innerText = name;
+    const p_age = document.querySelector("p#p_age");
+    p_age.innerText = age;
+  };
+  getUser();
+  // const getUser_ = () => {}
+
+</script>
+
+</html>

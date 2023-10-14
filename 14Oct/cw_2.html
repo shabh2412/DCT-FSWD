@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>In Built Sort & Comparators</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  {
+    const arr = [1, 5, 2, 3, 45, 3499, 20000, 1, 5, 12];
+    arr.sort();
+    function asending(a, b) {
+      return a - b;
+    }
+    arr.sort(asending);
+    function descending(a, b) {
+      return b - a;
+    }
+    arr.sort(descending);
+  }
+
+</script>
+
+<script>
+  {
+    const students = [
+      { name: "Rishabh", age: 28 },
+      { name: "Arun", age: 21 },
+      { name: "Pritesh", age: 19 },
+      { name: "Arun", age: 10 },
+    ];
+    // const arr = [1, 5, 2, 3, 45, 3499, 20000, 1, 5, 12];
+    function sortByAgeAscending(studentA, studentB) {
+      return studentA.age - studentB.age;
+    }
+    function sortByAgeDescending(studentA, studentB) {
+      return studentB.age - studentA.age;
+    }
+
+    students.sort(sortByAgeAscending);
+    students.sort(sortByAgeDescending);
+  }
+</script>
+
+</html>
