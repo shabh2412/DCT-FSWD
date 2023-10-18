@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LocalStorage, JSON, Sorting</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #inputsDiv {
+      /* border: 1px solid salmon; */
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px;
+    }
+
+    #inputsDiv>* {
+      padding: 10px;
+      /* border-radius: 10px; */
+      border: 0;
+      border-bottom: 1px solid salmon;
+    }
+
+    #inputsDiv>input+button {
+      cursor: pointer;
+    }
+
+    #inputsDiv>input+button:hover {
+      background-color: rgba(55, 55, 55, 0.5);
+      /* color-scheme: ; */
+    }
+
+    hr {
+      margin: auto;
+    }
+
+    #outputsDiv {
+      margin-top: 60px;
+    }
+
+    .productRow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 25px;
+      /* border-bottom: 1px solid black; */
+    }
+
+    .productRow>div {
+      width: 20%;
+      /* border: 1px solid salmon; */
+      padding: 4px;
+      display: flex;
+    }
+
+    img {
+      width: 75px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Products Inventory</h1>
+  <div>
+    <div>
+      <div id="inputsDiv">
+        <input id="name" placeholder="Name" type="text">
+        <input id="category" placeholder="Category" type="text">
+        <input id="image" placeholder="Image" type="text">
+        <input id="price" placeholder="Price" type="number">
+        <button id="addProduct">Add</button>
+      </div>
+      <hr width="65%">
+      <div id="outputsDiv">
+        <div class="productRow">
+          <div>
+            Image
+          </div>
+          <div>
+            Name
+          </div>
+          <div>
+            Category
+          </div>
+          <div>
+            Price
+          </div>
+        </div>
+        <!-- <div class="productRow">
+          <div>
+            <img src="https://m.media-amazon.com/images/I/61ukOt2g0JL._SX679_.jpg" alt="product image" width="75px">
+          </div>
+          <div>
+            <p class="productName">Crompton Ameo 750-Watt Mixer Grinder with MaxiGrind and Motor Vent-X Technology</p>
+          </div>
+          <div>
+            <p class="productCategory">Kitchen Appliances</p>
+          </div>
+          <div>
+            <p class="productPrice">₹2,499</p>
+          </div>
+        </div> -->
+      </div>
+    </div>
+</body>
+<script>
+
+  const addButton = document.querySelector("#addProduct");
+  // console.log({ addButton })
+
+  const productsList = [];
+
+  const displayData = function (productObj) {
+    // destructuring the product object data
+    const { name, price, category, image } = productObj;
+    // image tag
+    const img_tag = document.createElement("img");
+    img_tag.src = image;
+    img_tag.alt = name;
+    // img_tag.width = "75px";
+    const img_div = document.createElement("div");
+    img_div?.appendChild(img_tag);
+
+    // name - p tag
+    const name_tag = document.createElement("p");
+    name_tag.innerText = name;
+    const name_div = document.createElement("div");
+    name_div?.appendChild(name_tag);
+
+    // category - p tag
+    const category_tag = document.createElement("p");
+    category_tag.innerText = category;
+    const category_div = document.createElement("div");
+    category_div?.appendChild(category_tag);
+
+    // price - p tag
+    const price_tag = document.createElement("p");
+    price_tag.innerText = price;
+    const price_div = document.createElement("div");
+    price_div?.appendChild(price_tag);
+
+    // creating product row
+    const productRow = document.createElement("div");
+    productRow?.append(img_div, name_div, category_div, price_div);
+    productRow.className = "productRow";
+
+    // selecting #outputsDiv to append the products data
+    const outputsDiv = document.getElementById("outputsDiv");
+    outputsDiv?.append(productRow);
+
+  };
+
+  addButton?.addEventListener("click", function (buttonClickEvent) {
+    const nameInput = document.querySelector("input#name");
+    const name = nameInput.value;
+    // console.log(`name is ${name}`);
+    const categoryInput = document.querySelector("input#category");
+    const category = categoryInput.value;
+    const priceInput = document.querySelector("input#price");
+    const price = priceInput.value;
+    const imageInput = document.querySelector("input#image");
+    const image = imageInput.value;
+    const productObject = {
+      name: name,
+      category: category,
+      price: price,
+      image
+    };
+    console.log(productObject);
+    productsList?.push(productObject);
+    localStorage?.setItem("productsList", JSON.stringify(productsList));
+    console.log(productsList);
+    displayData(productObject);
+  });
+
+  function getProductsAndShow() {
+    const productsList = JSON.parse(localStorage.getItem("productsList"));
+    // console.log(productsList);
+    for (let productObj of productsList) {
+      displayData(productObj);
+    }
+  }
+  getProductsAndShow();
+</script>
+
+</html>

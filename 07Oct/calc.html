@@ -35,28 +35,28 @@
     </div>
     <div id="buttonsDiv">
       <div class="row">
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>+</button>
+        <button name="calculatorButton">1</button>
+        <button name="calculatorButton">2</button>
+        <button name="calculatorButton">3</button>
+        <button name="calculatorButton">+</button>
       </div>
       <div class="row">
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button>-</button>
+        <button name="calculatorButton">4</button>
+        <button name="calculatorButton">5</button>
+        <button name="calculatorButton">6</button>
+        <button name="calculatorButton">-</button>
       </div>
       <div class="row">
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
-        <button>*</button>
+        <button name="calculatorButton">7</button>
+        <button name="calculatorButton">8</button>
+        <button name="calculatorButton">9</button>
+        <button name="calculatorButton">*</button>
       </div>
       <div class="row">
-        <button>C</button>
-        <button>0</button>
-        <button>=</button>
-        <button>/</button>
+        <button name="calculatorButton">C</button>
+        <button name="calculatorButton">0</button>
+        <button name="calculatorButton">=</button>
+        <button name="calculatorButton">/</button>
       </div>
     </div>
   </div>
@@ -75,12 +75,36 @@
   const btnList = document.querySelectorAll("button");
   // btnList.addEventListener("click", addInDisplay); // this will not work here
   const length = btnList.length;
-  for (let i = 0; i < length; i++) {
-    btnList[i].addEventListener("click", function (myEvent) {
-      console.log("hello");
-      console.log(myEvent.target);
-      // const buttonText = btnList[i].innerText;
-      const buttonText = myEvent.target.innerText;
+  // for (let i = 0; i < length; i++) {
+  //   btnList[i].addEventListener("click", function (myEvent) {
+  //     console.log("hello");
+  //     console.log(myEvent.target);
+  //     // myEvent?.stopPropagation();
+  //     // const buttonText = btnList[i].innerText;
+  //     const buttonText = myEvent.target.innerText;
+  //     const previousDisplayText = display.innerText;
+  //     const newText = previousDisplayText + buttonText;
+  //     display.innerText = newText;
+  //     if (buttonText === "C") {
+  //       display.innerText = "";
+  //     }
+  //     else if (buttonText === "=") {
+  //       const result = eval(previousDisplayText);
+  //       display.innerText = result;
+  //     }
+  //   });
+  // }
+
+  const buttonsDiv = document.getElementById("buttonsDiv");
+
+  buttonsDiv.addEventListener("click", function (eventX) {
+    console.log("clicked something");
+    console.log(eventX.target);
+    console.log(eventX?.target?.type);
+    // eventX.stopPropagation();
+    if (eventX?.target?.name === "calculatorButton") {
+
+      const buttonText = eventX.target.innerText;
       const previousDisplayText = display.innerText;
       const newText = previousDisplayText + buttonText;
       display.innerText = newText;
@@ -91,13 +115,7 @@
         const result = eval(previousDisplayText);
         display.innerText = result;
       }
-    });
-  }
-
-  document.addEventListener("click", function (eventX) {
-    console.log("clicked something");
-    console.log(eventX.target);
-    // eventX.stopPropagation();
+    }
   });
   // console.log(btn);
 </script>

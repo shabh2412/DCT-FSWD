@@ -8,9 +8,9 @@
 </head>
 
 <body>
-  <input type="text" id="name">
-  <input type="text" id="age">
-  <button id="addButton">Add User</button>
+  <input type="text" id="name" productType="electronics">
+  <input type="text" id="age" productType="electronics">
+  <button id="addButton" productType="electronics">Add User</button>
 
   <div id="userDetail">
     <h1>Registered User</h1>
@@ -26,6 +26,8 @@
     const input = document.querySelector("input#name");
     // data attr
     const entered_name = input.value;
+    const item_category = input?.getAttribute("productType");
+    console.log({ item_category });
     const input_age = document.querySelector("input#age");
     // data attr
     const entered_age = input_age.value;
