@@ -59,9 +59,10 @@ const myPromise_fulfills = new Promise(function (resolve, reject) {
   // setTimeout(sendUserData, 5000);
   function reject_request() {
     try {
-      // const x = 10;
+      const x = 10;
       // console.log(x);
-      throw new Error("not authenticated");
+      x = 99;
+      // throw new Error("not authenticated");
     } catch (error) {
       reject(error);
     }
