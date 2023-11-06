@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #productsContainer {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, auto);
+      gap: 16px;
+      background-color: #d5cdcd;
+      padding: 10px;
+    }
+
+    #productsContainer>div {
+      height: 100%;
+      width: 100%;
+      background-color: white;
+      border-radius: 15px;
+      padding: 5px;
+      /* padding-top: 5px;
+      padding-bottom: 5px; */
+    }
+
+    #productsContainer>div>img {
+      height: 120px;
+      width: 100%;
+      object-fit: contain;
+    }
+
+    #productsContainer>div>p {
+      text-align: center;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="productsContainer"></div>
+</body>
+
+</html>
+<script src="./index.js"></script>
