@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>React App</title>
+</head>
+
+<body>
+  <div id="myReactContainer" style="border:1px solid red;">
+  </div>
+</body>
+
+</html>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<!-- https://hashal890.github.io/projects -->
+<script>
+  const myReactContainer = document.getElementById("myReactContainer");
+  // console.log(myReactContainer)
+  // console.log(ReactDOM)
+  const root = ReactDOM.createRoot(myReactContainer);
+
+  // Creating Element using ReactDOM
+  // p
+  const pTagReact = React.createElement("p", { id: "myP", key: "okokok" }, "hello");
+  const pTagReact1 = React.createElement("p", { id: "myP", key: "okk" }, "hello____");
+  // console.log(pTagReact);
+  // console.log(root);
+
+  // div
+  const myReactDiv = React.createElement(
+    "div",
+    { id: 'myReactDiv', key: "myReactDiv" },
+    [pTagReact, pTagReact1]
+  );
+
+  // root.render([pTagReact, pTagReact1]);
+  root.render(myReactDiv);
+</script>
