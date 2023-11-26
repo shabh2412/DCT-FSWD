@@ -1,6 +1,9 @@
+import { createElement } from "react";
+import { createRoot } from "react-dom/client";
+
 const ReactRootINHTML = document.getElementById("ReactRoot");
 
-const root = ReactDOM.createRoot(ReactRootINHTML);
+const root = createRoot(ReactRootINHTML);
 
 // console.log(root);
 
@@ -13,7 +16,7 @@ function textTag({ tagName, content, id }) {
   // console.log(timestamp.getTime());
   const ms = timestamp.getTime();
   // console.log(`${ms}-${tagName}-${content}-${id}`);
-  const myElement = React.createElement(tagName, { id: id, key: `${ms}-${tagName}-${content}-${id}` }, content);
+  const myElement = createElement(tagName, { id: id, key: `${ms}-${tagName}-${content}-${id}` }, content);
   // console.log(myElement);
   return myElement;
 }
@@ -50,7 +53,7 @@ function ContainerTag({ tagName, children, id, }) {
   // console.log(timestamp.getTime());
   const ms = timestamp.getTime();
   const key = `${ms}-${tagName}-${children?.length}-${id}`;
-  const myContainer = React.createElement(tagName, {
+  const myContainer = createElement(tagName, {
     id, key, style: {
       border: "1px solid red",
       backgroundColor: "hotpink",
