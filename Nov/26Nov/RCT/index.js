@@ -79,5 +79,18 @@ const container_2 = ContainerTag({
   children: "this is my 2nd container"
 });
 
+const h1_react = createElement("h1", { key: "ABC" }, "H1 fROM REACT");
+
+
+const h1 = <h1 key="lololl">Hello World I am also coming from react!</h1>;
+
+console.log(h1_react);
+console.log(h1);
+
+/**
+ <h1>Hello .... </h1>
+ * 
+ */
+
 // console.log(container_1);
-root.render([container_1, container_2]);
+root.render([h1_react, h1]);
