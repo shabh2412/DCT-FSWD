@@ -14,8 +14,11 @@ function App() {
   // }
 
   // using useState Hook
-  const [counter, set_count] = useState(0);
+  const [counter, set_count] = useState(0); // => [ state, state_setter ]
 
+  // 1. x = x + 1;
+  // 2. x + 1;
+  // 3. x++;
 
   const user = {
     name: "rishabh",
@@ -47,11 +50,13 @@ function App() {
   //   // console.log(temp);
   //   // console.log(counter + 1);
   // }
+  // this is arrow function extracted into a variable for reusability.
+  const increment_callback = (prevValue) => {
+    return prevValue + 1;
+  };
 
   const increment = () => {
-    set_count((prevValue) => {
-      return prevValue + 1;
-    });
+    set_count(increment_callback);
   };
 
   const decrement = () => {
