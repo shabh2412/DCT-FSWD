@@ -8,7 +8,7 @@ export default function App() {
   const [email, set_email] = useState("");
 
   const changeHandler = (e) => {
-    console.log(e?.target?.value);
+    // console.log(e?.target?.value);
     const value = e?.target?.value;
     set_email(value);
   };
