@@ -7,6 +7,12 @@ export default function App() {
 
   const [email, set_email] = useState("");
 
+  const changeHandler = (e) => {
+    console.log(e?.target?.value);
+    const value = e?.target?.value;
+    set_email(value);
+  };
+
   // let email_list = []; // this doesn't have its state.
 
   // making email_list stateful
@@ -19,6 +25,7 @@ export default function App() {
       email={email}
       set_email={set_email}
       set_email_list={set_email_list}
+      changeHandler={changeHandler}
     />
     {/* <div style={{
       border: "1px solid hotpink",
