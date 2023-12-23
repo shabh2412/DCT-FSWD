@@ -1,0 +1,9 @@
+.light {
+  background-color: lightpink;
+  color: black !important;
+}
+
+.dark {
+  background-color: rgb(46, 45, 45);
+  color: white !important;
+}
