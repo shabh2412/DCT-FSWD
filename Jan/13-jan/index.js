@@ -32,6 +32,7 @@ const server = http.createServer(function (req, res) {
     req.on("end", function () {
       console.log(body);
     });
+    res.setHeader("Content-Type", "application/json");
     switch (req.url) {
       case "/users": {
         res.end(JSON.stringify({ users: ["arun", "pritesh", "kaustubh", "mayuresh"] }));
