@@ -1,0 +1,26 @@
+Q. What defines the file size?
+A: The content defines the file size.
+
+Q. What is a server?
+A: Something that stores data, computes data.
+
+Q. What are endpoints?
+A. Routes that accept a request: REST API - Representational State Transfer Protocol
+
+Q. What is a port?
+A: A virtual door to some server.
+
+Q: What is a URL?
+A: Uniform Resource Locator - An address which locates some string / data / file, etc. It consists of - Protocol, Domain, Location, 
+- Scheme, Domain, Port, Location, Query Parameter
+
+Q. What is path parameter/params?
+A: 
+Ex: /:id => http://localhost:3000/products/:id => http://localhost:3000/products/4 or http://localhost:3000/products/10
+
+Q. What is Query params?
+A: //
+Ex: query parameters => ?id=40&name=Pritesh
+
+Q: How to benchmark, how much time was taken?
+A: How many request it can serve at a time

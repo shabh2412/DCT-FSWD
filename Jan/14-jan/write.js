@@ -62,12 +62,12 @@ const server = createServer(
         res.write("page not found");
       }
     }
-
+    res.end();
   }
 );
 
 // port
-const PORT = 3001;
+const PORT = 3010;
 
 server.listen(PORT, () => {
   console.log(`server is running on ${PORT}`);
