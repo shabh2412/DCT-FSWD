@@ -8,8 +8,10 @@ const carsRouter = express.Router();
 // get method - (path + request handler)
 carsRouter.get("/", getCars);
 
-// Path Params
+// Path Params - represented by : Example users/:username => users/kaustubh
 carsRouter.get("/:id", carsByPathParams);
+
+// Query params - represented by : ? Example /users/?age=21&skill=MERN&dsa_level=expert
 
 // POST - CREATE
 carsRouter.post("/", addNewCar);
